@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · top1体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1e2a32;
+            line-height: 1.6;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            max-width: 1080px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* hero 区域 — 开场短句 */
+        .hero {
+            padding: 3.5rem 0 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #17494d;
+        }
+
+        .hero .lead {
+            font-size: 1.2rem;
+            color: #3d6b6f;
+            margin-top: 0.75rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #e5f0f2;
+            padding: 0.8rem 1.6rem;
+            border-radius: 48px;
+            display: inline-block;
+        }
+
+        /* 承接段落 — 简明指南感 */
+        .intro {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin: 1.6rem 0 2rem;
+            box-shadow: 0 4px 16px rgba(23, 73, 77, 0.06);
+            border-left: 5px solid #1f7a7f;
+        }
+
+        .intro p {
+            font-size: 1rem;
+            color: #21363a;
+            margin-bottom: 0.8rem;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro strong {
+            color: #1f7a7f;
+        }
+
+        /* 网格卡片 — 特点列表 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 14px rgba(0, 20, 20, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            border: 1px solid #ddebee;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(31, 122, 127, 0.10);
+            border-color: #a6cdd2;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a5b60;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "▹";
+            color: #2b9ca3;
+            font-weight: 300;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2f484d;
+        }
+
+        /* 场景 + 提示 */
+        .notice-box {
+            background: #e1f0f2;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin: 2.4rem 0 1.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem;
+        }
+
+        .notice-box .text {
+            flex: 2 1 260px;
+        }
+
+        .notice-box .text h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #12494d;
+            margin-bottom: 0.4rem;
+        }
+
+        .notice-box .text p {
+            font-size: 0.95rem;
+            color: #1b484d;
+        }
+
+        .notice-box .badge {
+            background: #ffffff;
+            border-radius: 60px;
+            padding: 0.5rem 1.4rem;
+            font-weight: 500;
+            color: #1f7a7f;
+            border: 1px solid #aad0d4;
+            white-space: nowrap;
+        }
+
+        /* FAQ 摘要 */
+        .faq-section {
+            margin: 2rem 0 2.8rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #12494d;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            padding: 1rem 1.6rem;
+            border-radius: 16px;
+            margin-bottom: 0.8rem;
+            border-left: 3px solid #6ebac1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #1a5b60;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.95rem;
+            color: #2f4a4f;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            text-align: center;
+            padding: 2.2rem 0 3rem;
+            border-top: 1px solid #d1e3e6;
+        }
+
+        .closing p {
+            font-size: 1rem;
+            color: #345e63;
+        }
+
+        .closing a {
+            color: #1f7a7f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #7bbcc2;
+        }
+
+        .closing a:hover {
+            border-bottom-style: solid;
+            color: #0b4f54;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .lead {
+                font-size: 1rem;
+                padding: 0.5rem 1.2rem;
+            }
+
+            .intro {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .notice-box {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.6rem;
+            }
+
+            .faq-item {
+                padding: 0.8rem 1rem;
+            }
+
+            .closing {
+                padding: 1.6rem 0 2rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- hero 开场短句 -->
+        <header class="hero">
+            <h1>运动信息 · 一步到位</h1>
+            <div class="lead">简明指南 · 快速定位你关心的内容</div>
+        </header>
+
+        <!-- 承接段落：访问提醒 + 简明指南 -->
+        <section class="intro">
+            <p>无论你是在寻找赛事动态、运动装备参考还是日常训练思路，<strong>top1体育</strong> 都尝试把信息组织得更紧凑清晰。本页是一份精炼的指引，帮助你更快了解这个平台的定位与使用方式。</p>
+            <p>网站界面侧重移动端适配，栏目分类聚焦于实用内容。初次到访时，建议先浏览首页导航与推荐模块，那里往往聚合了近期较受关注的条目。</p>
+            <p>在阅读任何页面时，留意标注「指南」或「摘要」的板块——它们通常提炼了核心要点，帮你节省筛选时间。</p>
+        </section>
+
+        <!-- 特点列表 (网格卡片) -->
+        <div class="feature-grid">
+            <div class="card">
+                <h3>专题分类</h3>
+                <p>按运动项目、赛事级别、训练类型划分内容，减少无关信息干扰。</p>
+            </div>
+            <div class="card">
+                <h3>轻量页面</h3>
+                <p>页面结构精简，图片与文本比例合理，移动网络下加载速度较快。</p>
+            </div>
+            <div class="card">
+                <h3>更新节奏</h3>
+                <p>内容保持适度更新频率，重点覆盖主流赛事与实用运动知识。</p>
+            </div>
+            <div class="card">
+                <h3>导航提示</h3>
+                <p>顶部及底部提供主要栏目的快捷入口，便于在不同板块间切换。</p>
+            </div>
+        </div>
+
+        <!-- 场景 + 提醒 (视觉提示块) -->
+        <div class="notice-box">
+            <div class="text">
+                <h2>访问提醒</h2>
+                <p>网站部分链接指向外部资源，请留意域名与页面环境。浏览时建议使用系统默认浏览器设置，以获得完整的排版支持。</p>
+            </div>
+            <span class="badge">📌 保持浏览器更新</span>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <section class="faq-section">
+            <h2>常见疑问 · 简要摘要</h2>
+            <div class="faq-item">
+                <div class="q">如何快速找到特定运动的最新内容？</div>
+                <div class="a">可利用首页搜索入口或栏目导航。部分专题页面会置顶近期更新，按时间倒序排列。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">移动端浏览是否与桌面端有差异？</div>
+                <div class="a">核心内容与导航在移动端经过适配，部分表格或大图建议横屏查看以获得更佳效果。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">内容来源是否可靠？</div>
+                <div class="a">网站主要整合公开可查的赛事信息与运动常识，具体数据建议交叉核对官方渠道。引用会标注来源概要。</div>
+            </div>
+        </section>
+
+        <!-- 温和结尾 + 自然嵌入链接 -->
+        <footer class="closing">
+            <p>
+                从赛事速览到训练参考，<a href="https://m-top1sport.com">top1体育</a> 希望为你提供一份简洁的数字化运动手册。<br>
+                页面内容会持续调整，欢迎偶尔回来看看。
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
